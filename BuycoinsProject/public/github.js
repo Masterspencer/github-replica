@@ -52,7 +52,7 @@ async function getRepos() {
     body: JSON.stringify(query),
     headers: {
       "Content-Type": "application/json",
-      Authorization: `token ${process.env.API_TOKEN}`,
+      Authorization: `token ${API_TOKEN}`,
     },
   });
   const json = await response.json();
