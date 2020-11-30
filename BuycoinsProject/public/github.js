@@ -1,5 +1,7 @@
 
 // const fetch = require("node-fetch");
+const dotenv = require('dotenv').config();
+const token = process.env.API_TOKEN;
 
 const query = {
   query: `
@@ -44,7 +46,6 @@ const query = {
   }
             `,
 };
-
 //function to get the query from github API 
 async function getRepos() {
   const response = await fetch("https://api.github.com/graphql", {
@@ -52,9 +53,10 @@ async function getRepos() {
     body: JSON.stringify(query),
     headers: {
       "Content-Type": "application/json",
-      Authorization: `token ${API_TOKEN}`,
+      Authorization: `token ${token}`,
     },
   });
+
   const json = await response.json();
   const repository = json.data.user.repositories.nodes; // variable holding the array of objects.
   console.log(repository);
@@ -300,7 +302,7 @@ function display(){
     hamburgerToggle.classList.toggle('active');
 }
 let plusSignDiv = document.getElementById('nav-plus-sign');
-plusSignDiv.addEventListener('click', function(){
+  plusSignDiv.addEventListener('click', function(){
   let plusSign = document.getElementById('plus-drop-down');
   plusSign.classList.toggle('active');
 })
@@ -309,9 +311,9 @@ profilePicDiv.addEventListener("click", function () {
   let profilePic = document.getElementById("profile-drop");
   profilePic.classList.toggle("active");
 });
- window.addEventListener("click", function () {
-   plusSign.classList.toggle("active");
- });
+//  window.addEventListener("click", function () {
+//    plusSign.classList.toggle("active");
+//  });
 
  let expandSearchBox = document.getElementById('expandSearchBox');
   expandSearchBox.addEventListener('click', function(){

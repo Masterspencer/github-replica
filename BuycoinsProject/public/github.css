@@ -879,7 +879,7 @@ margin: 0;
 
 }
 
-@media(min-width: 375px) and (max-width: 767px){
+@media(min-width: 374px) and (max-width: 767px){
     /**GRID SYSTEM LAYOUT**/
 .navigation{
     grid-row: 1/2;
